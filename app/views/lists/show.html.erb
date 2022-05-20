@@ -1,2 +1,22 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<div class="container">
+  <h1><%= @list.name %></h1>
+
+  <% @list.movies.each do |movie| %>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="<%= movie.poster_url %>" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= movie.title %></h5>
+        <p class="card-text"><%= movie.overview %></p>
+        <%  %>
+        <% bookmark = Bookmark.where(list_id: @list.id, movie_id: movie.id) %>
+        <% bookmark_id = bookmark[0] %>
+        <%= link_to "Delete", bookmark_path(bookmark_id), method: :delete, class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+
+
+  <%= link_to "Home", lists_path %>
+  <%= link_to "Add a move to this list", new_list_bookmark_path(@list) %>
+
+</div>

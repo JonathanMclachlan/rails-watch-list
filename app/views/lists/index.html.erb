@@ -1,2 +1,16 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<div class="container">
+
+<h1>See your lists below</h1>
+
+  <% @lists.each do |list| %>
+
+    <%= link_to list_path(list), :action => 'go' do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.picture_url %>)">
+        <%= list.name  %>
+      </div>
+    <% end %>
+  <% end %>
+
+<%= link_to "Add a new list", new_list_path %>
+
+</div>

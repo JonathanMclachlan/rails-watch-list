@@ -29,7 +29,7 @@ gem "autoprefixer-rails", "10.2.5"
 gem "font-awesome-sass", "~> 5.15"
 
 # gem to be able to create simple forms / to use the simple form helper of rails
-gem "simple_form", github: "heartcombo/simple_form"
+gem 'simple_form', github: 'heartcombo/simple_form'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
