@@ -5,19 +5,19 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container text-center">
 
-<h1>See your lists below</h1>
+  <h3 class="m-3">Your lists</h3>
+    <div class="row">
+      <% @lists.each do |list| %>
+        <div class="col-4 p-0">
 
-  <% @lists.each do |list| %>
-
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.picture_url %>)"
-          data-controller="card" data-action="click->card#linkToList">
-        <%= list.name  %>
-        <a href="<%= list_path(list) %>" class="d-none" data-card-target="link"></a>
-      </div>
-  <% end %>
-
-<%= link_to "Add a new list", new_list_path %>
-
+            <div class="card-category m-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.picture_url %>)"
+                data-controller="card" data-action="click->card#linkToList">
+              <%= list.name  %>
+              <a href="<%= list_path(list) %>" class="d-none" data-card-target="link"></a>
+            </div>
+        </div>
+      <% end %>
+    </div>
 </div>
